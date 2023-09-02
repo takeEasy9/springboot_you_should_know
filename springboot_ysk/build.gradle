@@ -1,0 +1,8 @@
+group = 'com.springboot.ysk'
+version = '0.0.1'
+dependencies {
+    implementation(project(':springboot_ysk_common'))
+    implementation(project(':springboot_ysk_web'))
+    implementation(project(':springboot_ysk_mybatis'))
+    implementation(project(':springboot_ysk_redis'))
+}

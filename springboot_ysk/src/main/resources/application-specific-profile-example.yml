@@ -1,0 +1,54 @@
+server:
+  port: 8060
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+  datasource:
+    druid:
+      mysql-ysk:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://yourIP:port/ysk?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowMultiQueries=true&rewriteBatchedStatements=true
+        username: root
+        password: mysql@root$2023
+        initialSize: 5
+        minIdle: 5
+        maxActive: 10
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        maxEvictableIdleTimeMillis: 900000
+        poolPreparedStatements: false
+        validationQuery: select 1 from dual
+        validationQueryTimeout: 10000
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        keepAlive: true
+        filters: stat,slf4j
+        usePingMethod: false
+        useGlobalDataSourceStat: true
+  data:
+    # redis
+    redis:
+      lettuce:
+        pool:
+          max-idle: 8
+          min-idle: 0
+          max-wait: -1
+          max-active: 8
+        shutdown-timeout: 1200
+
+  # elasticsearch
+  elasticsearch:
+    uris: yourIP:port
+    connection-timeout: 3000
+    socket-timeout: 5000
+  # jpa
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true

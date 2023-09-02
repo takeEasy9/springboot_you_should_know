@@ -1,0 +1,10 @@
+group = 'com.springboot.ysk.common'
+version = '0.0.1'
+
+dependencies {
+    // 常用工具
+    implementation 'org.apache.commons:commons-pool2:2.11.1'
+    implementation 'commons-io:commons-io:2.13.0'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+
+}

@@ -1,0 +1,6 @@
+group = 'com.springboot.ysk.redis'
+version = '0.0.1'
+
+dependencies {
+    implementation(project(':springboot_ysk_common'))
+}

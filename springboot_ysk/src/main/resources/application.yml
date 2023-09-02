@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: springboot_you_should_know
+  profiles:
+    active: dev
