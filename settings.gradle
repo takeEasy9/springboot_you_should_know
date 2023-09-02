@@ -1,0 +1,2 @@
+rootProject.name = 'springboot_you_should_know'
+include('springboot_ysk', 'springboot_ysk_common', 'springboot_ysk_web', 'springboot_ysk_redis', 'springboot_ysk_mybatis')

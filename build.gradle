@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.2'
+    id 'io.spring.dependency-management' version '1.1.2'
+}
+group = 'com.springboot.ysk'
+version = '0.0.1'
+description = 'springboot you should know'
+
+allprojects {
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java'
+    repositories {
+        mavenLocal()
+        maven {
+            url "https://maven.aliyun.com/nexus/content/groups/public/"
+        }
+        mavenCentral()
+    }
+    java {
+        sourceCompatibility = '20'
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+}
+
+subprojects {
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-webflux:3.1.2'
+        // 数据库连接池
+        implementation 'com.alibaba:druid-spring-boot-starter:1.2.18'
+        // mysql
+        implementation 'mysql:mysql-connector-java:8.0.33'
+        // redis
+        implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+        // mybatis
+        implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'
+        // 分页工具
+        implementation 'com.github.pagehelper:pagehelper-spring-boot-starter:1.4.7'
+        // springboot validation
+        implementation 'org.springframework.boot:spring-boot-starter-validation:3.1.2'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    }
+
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
+
+    jar {
+        manifest {
+            attributes 'Main-Class': 'com.springboot.SpringbootYskApplication'
+        }
+    }
+}
